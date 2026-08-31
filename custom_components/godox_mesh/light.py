@@ -16,9 +16,10 @@ from typing import Any
 from homeassistant.components.light import ColorMode, LightEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import CONF_MAC_ADDRESS, DOMAIN
+from .const import CONF_MAC_ADDRESS, CONF_MODEL, DEFAULT_MODEL, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -47,11 +48,14 @@ class GodoxMeshLightEntity(LightEntity):
         self._attr_hs_color = (0.0, 0.0)
         self._attr_brightness = 255
 
+        mac = entry.data[CONF_MAC_ADDRESS]
+        model = entry.data.get(CONF_MODEL, DEFAULT_MODEL)
         self._attr_device_info = {
-            "identifiers": {(DOMAIN, entry.data[CONF_MAC_ADDRESS])},
+            "identifiers": {(DOMAIN, mac)},
+            "connections": {(dr.CONNECTION_BLUETOOTH, mac)},
             "name": entry.title,
             "manufacturer": "Godox",
-            "model": "TL120 (Telink Mesh, vendor opcode 0xF0)",
+            "model": f"{model} (Telink Mesh, vendor opcode 0xF0)",
         }
 
     async def async_turn_on(self, **kwargs: Any) -> None:

@@ -10,17 +10,33 @@
           "unicast_address": "Unicast address, hex (e.g. 0x0002)",
           "provisioner_address": "Provisioner unicast address, hex (usually 0x0001)",
           "net_key": "Network Key (32 hex characters)",
-          "app_key": "Application Key (32 hex characters)"
+          "app_key": "Application Key (32 hex characters)",
+          "model": "Model"
+        }
+      },
+      "reconfigure": {
+        "title": "Edit Godox Mesh Light",
+        "description": "Review or correct this light's MAC address, keys, addresses, and model. Changes are saved and applied immediately.",
+        "data": {
+          "name": "Name (optional)",
+          "mac_address": "Bluetooth MAC address (e.g. A4:C1:38:F7:B2:24)",
+          "unicast_address": "Unicast address, hex (e.g. 0x0002)",
+          "provisioner_address": "Provisioner unicast address, hex (usually 0x0001)",
+          "net_key": "Network Key (32 hex characters)",
+          "app_key": "Application Key (32 hex characters)",
+          "model": "Model"
         }
       }
     },
     "error": {
       "invalid_mac": "That doesn't look like a valid MAC address (expected format AA:BB:CC:DD:EE:FF)",
       "invalid_key": "Keys must be exactly 32 hex characters (16 bytes)",
-      "invalid_address": "Address must be a valid mesh unicast address (1-32767), e.g. 0x0002"
+      "invalid_address": "Address must be a valid mesh unicast address (1-32767), e.g. 0x0002",
+      "duplicate_mac": "This MAC address is already used by another configured light"
     },
     "abort": {
-      "already_configured": "This light is already configured"
+      "already_configured": "This light is already configured",
+      "reconfigure_successful": "This light's configuration was updated"
     }
   }
 }
