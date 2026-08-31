@@ -1,11 +1,11 @@
 {
   "domain": "godox_mesh",
   "name": "Godox Mesh Light",
-  "codeowners": ["@your-github-username"],
+  "codeowners": ["@ndricjaho"],
   "config_flow": true,
   "dependencies": ["bluetooth"],
-  "documentation": "https://github.com/your-github-username/godox-mesh-ha",
-  "issue_tracker": "https://github.com/your-github-username/godox-mesh-ha/issues",
+  "documentation": "https://github.com/ndricjaho/godox-mesh-ha",
+  "issue_tracker": "https://github.com/ndricjaho/godox-mesh-ha/issues",
   "iot_class": "local_polling",
   "requirements": ["bleak>=0.21.0", "bleak-retry-connector>=3.0.0", "pycryptodome>=3.19.0"],
   "version": "1.0.0"
